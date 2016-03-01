@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Listing movies</h1>
+</div>
+<% @movies.each do |movie| %>
+  <div class="copy-wrapper">
+    <div class="grid">
+      <div id="test" class="col-lg-6">
+        <div class="thumbnail">
+          <% if movie['posters']['profile'].present? %>
+            <img src="<%= movie['posters']['profile'] %>">
+          <% else %>
+            <img src="http://wet-noses.com/wp-content/plugins/foxyshop/images/no-photo.png">
+          <% end %>
+          <div class="caption">
+            <h3><%= movie['title'] %></h3>
+            <h5><%= movie['year'] %></h5>
+
+            <p>
+              <% if movie['synopsis'].present? %>
+                <span><strong>Description:</strong></span>
+                <br>
+                <%= movie['synopsis'] %>
+              <% end %>
+            </p>
+          </div>
+          <br>
+
+          <p>
+            <% movie['abridged_cast'].each do |actor| %>
+              <%= link_to "#{actor['name']}", controller: 'actors', action: 'show', id: @actors_id.id  %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
