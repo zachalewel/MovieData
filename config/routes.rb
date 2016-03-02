@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :movies do
     resources :actors
   end
-  get 'actors/:id' => 'actors#show', as: :show_movie_actors
+  get 'actors/:actor_id' => 'actors#show', as: :show_movie_actors
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

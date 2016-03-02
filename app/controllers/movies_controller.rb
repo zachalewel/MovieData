@@ -6,11 +6,6 @@ class MoviesController < ApplicationController
   # GET /movies.json
   def index
     @movies = Movie.get_theater_movies
-    @movies.each do |movie|
-      movie['abridged_cast'].each do |actor|
-        @actors_id = Actor.where(actor_id: actor['id']).first
-      end
-    end
   end
 
   # GET /movies/1

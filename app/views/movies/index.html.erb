@@ -24,10 +24,9 @@
             </p>
           </div>
           <br>
-
           <p>
             <% movie['abridged_cast'].each do |actor| %>
-              <%= link_to "#{actor['name']}", controller: 'actors', action: 'show', id: @actors_id.id  %>
+              <%= link_to actor['name'], show_movie_actors_path(actor['id']) %>
             <% end %>
           </p>
         </div>
