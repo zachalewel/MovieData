@@ -8,7 +8,7 @@ class Movie < ActiveRecord::Base
       if found_movie
         Movie.update_attributes(name: movie['title'], production_year: movie['year'], description: movie['synopsis'])
       else
-        Movie.create(:name => movie['title'], :production_year => movie['year'], :description => movie['synopsis'])
+        Movie.create(name: movie['title'], production_year: movie['year'], description: movie['synopsis'])
       end
     end
   end
