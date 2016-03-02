@@ -3,7 +3,6 @@ class Actor < ActiveRecord::Base
   validates :actor_id, presence: true, uniqueness: true
 
   def self.get_list_of_movie_actors
-    text = Scrape::ActorsTextScrapeController.get_actors_text
-    text
+    Scrape::ActorsTextScrapeController.get_actors_text
   end
 end
